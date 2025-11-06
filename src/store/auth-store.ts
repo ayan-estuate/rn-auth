@@ -41,6 +41,7 @@ export const useAuthStore = create<AuthState>()(
       },
 
       signUp: async (dto) => {
+        
         set({ loading: true });
         try {
           const res = await authService.register(dto);

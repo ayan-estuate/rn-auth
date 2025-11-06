@@ -1,3 +1,1 @@
-import Constants from 'expo-constants';
-export const API_URL =
-  (Constants.expoConfig?.extra as any)?.API_URL || 'https://api.example.com';
+export const API_URL = 'http://10.10.11.191:8080/api/v1';

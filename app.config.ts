@@ -17,11 +17,12 @@ export default ({ config }: { config: ExpoConfig }) => ({
       foregroundImage: './assets/images/adaptive-icon.png',
       backgroundColor: '#ffffff',
     },
+    usesCleartextTraffic: true,
   },
   web: { bundler: 'metro', favicon: './assets/images/favicon.png' },
   experiments: { typedRoutes: true },
   extra: {
-    API_URL: process.env.API_URL || 'https://api.example.com', // <- change me
+    API_URL: 'http://10.10.11.191:8080/api/v1',
     eas: { projectId: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' },
   },
 });

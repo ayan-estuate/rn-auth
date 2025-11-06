@@ -2,6 +2,7 @@ import { Screen } from '@/components/layout/Screen';
 import { Button } from '@/components/ui/Button';
 import { Text } from '@/components/ui/Text';
 import { EmailField } from '@/features/auth/components/EmailField';
+import { NameField } from '@/features/auth/components/NameField';
 import { PasswordField } from '@/features/auth/components/PasswordField';
 import { signUpSchema, type SignUpForm } from '@/features/auth/validators';
 import { useAuthStore } from '@/store/auth-store';
@@ -21,6 +22,7 @@ export default function SignUp() {
   const loading = useAuthStore((s) => s.loading);
 
   const onSubmit = handleSubmit(async (values) => {
+    
     try {
       await signUp(values);
       Alert.alert('Success', 'Account created successfully!');
@@ -39,7 +41,13 @@ export default function SignUp() {
         <Text style={{ fontSize: 28, fontWeight: '700' }}>
           Create your account
         </Text>
-
+        {/* Name field */}
+        <NameField
+          control={control}
+          name="name"
+          showNameField={true}
+          controlName="name"
+        />
         {/* Email + optional Name field */}
         <EmailField
           control={control}
