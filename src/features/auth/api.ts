@@ -1,16 +1,14 @@
 import { api } from '@/lib/api-client';
-import { AuthResponse, SignInDto, SignUpDto } from './types';
+import { AuthResponse, SignInDto, SignUpDto, ApiResponse } from './types';
 
-export async function signIn(dto: SignInDto): Promise<AuthResponse> {
-
-  
-  const { data } = await api.post<AuthResponse>('/auth/login', dto);
-  return data;
+export async function signIn(dto: SignInDto): Promise<ApiResponse<AuthResponse>> {
+  const { data } = await api.post<ApiResponse<AuthResponse>>('/auth/login', dto);
+  return data; // this now includes success, message, data, timestamp
 }
 
-export async function signUp(dto: SignUpDto): Promise<AuthResponse> {
-    console.log(api);
-  const { data } = await api.post<AuthResponse>('/auth/signup', dto);
+export async function signUp(dto: SignUpDto): Promise<ApiResponse<AuthResponse>> {
+  console.log('Calling backend:', `${api.defaults.baseURL}/auth/signup`, dto);
+  const { data } = await api.post<ApiResponse<AuthResponse>>('/auth/signup', dto);
   return data;
 }
 

@@ -22,7 +22,7 @@ export default ({ config }: { config: ExpoConfig }) => ({
   web: { bundler: 'metro', favicon: './assets/images/favicon.png' },
   experiments: { typedRoutes: true },
   extra: {
-    API_URL: 'http://10.10.11.191:8080/api/v1',
+    API_URL: 'http://localhost:8080/api/v1',
     eas: { projectId: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' },
   },
 });
